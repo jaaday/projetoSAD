@@ -5,7 +5,6 @@
  */
 
 
-import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 import javax.xml.bind.JAXBContext;
@@ -14,7 +13,6 @@ import javax.xml.bind.Unmarshaller;
 import org.netbeans.j2ee.wsdl.buscape.ObjectFactory;
 import org.netbeans.j2ee.wsdl.buscape.OfferType;
 import org.netbeans.j2ee.wsdl.buscape.Result;
-import org.netbeans.j2ee.wsdl.buscape.SellerType;
 
 /**
  *
