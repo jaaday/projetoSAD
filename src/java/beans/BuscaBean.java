@@ -4,14 +4,20 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 import org.netbeans.j2ee.wsdl.buscape.ObjectFactory;
 import org.netbeans.j2ee.wsdl.buscape.OfferType;
 import org.netbeans.j2ee.wsdl.buscape.Result;
+import java.io.Serializable;
+                                                                                                                                                                                                                                                                                         
 
-public class BuscaBean {
+@ManagedBean
+@SessionScoped
+public class BuscaBean implements Serializable {
 
     private String nome;
     private Result result;
@@ -35,7 +41,7 @@ public class BuscaBean {
         try {
             jc = JAXBContext.newInstance(ObjectFactory.class);
             u = jc.createUnmarshaller();
-            result = (Result) u.unmarshal(new URL("http://sandbox.buscape.com/service/findOfferList/564771466d477a4458664d3d/?keyword="+nome));
+            result = (Result) u.unmarshal(new URL("http://sandbox.buscape.com/service/findOfferList/564771466d477a4458664d3d/?categoryId=3482&keyword="+nome));
             resultados = result.getOffer();
         } catch (JAXBException | MalformedURLException e) {
         }
