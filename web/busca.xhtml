@@ -17,28 +17,27 @@
             <center>
                 <h:form id="formulario">
                     <h:panelGrid>
-                        <p:panel header="Buscar produto">
-                            <h:panelGrid columns="2">
-                                <h:outputText value="Nome do produto: "/>
-                                <p:inputText id="username" value="#{buscaBean.nome}" maxlength="50"/>
+                        <div align="center"> 
+                            <p:panel header="Buscar produto">
+                                <h:panelGrid columns="2">
+                                    <h:outputText value="Nome do produto: "/>
+                                    <p:inputText id="username" value="#{buscaBean.nome}" maxlength="50"/>
 
-                                
-                                <h:panelGrid columns="1" style="margin-bottom: 10px">
-                                    <h3>Valor</h3>
-                                    <h:outputText id="output" value="Prioridade %#{buscaBean.number2}" />
-                                    <h:inputHidden id="txt2" value="#{buscaBean.number2}" />
-                                    <p:slider for="txt2" display="output" style="width: 200px" displayTemplate="Prioridade %{value}" />
-                                    <h3>Rating</h3>
-                                    <h:outputText id="output2" value="Prioridade %#{buscaBean.number3}" />
-                                    <h:inputHidden id="txt3" value="#{buscaBean.number3}" />
-                                    <p:slider for="txt3" display="output2" style="width: 200px" displayTemplate="Prioridade %{value}" />
+                                        <h3>Valor</h3>
+                                        <h:outputText id="output" value="Prioridade %#{buscaBean.number2}" />
+                                        <h:inputHidden id="txt2" value="#{buscaBean.number2}" />
+                                        <p:slider for="txt2" display="output" style="width: 200px" displayTemplate="Prioridade %{value}" />
+                                        <h3>Rating</h3>
+                                        <h:outputText id="output2" value="Prioridade %#{buscaBean.number3}" />
+                                        <h:inputHidden id="txt3" value="#{buscaBean.number3}" />
+                                        <p:slider for="txt3" display="output2" style="width: 200px" displayTemplate="Prioridade %{value}" />
+
+
+                                    <p:commandButton value="BUSCAR" action="#{buscaBean.buscar}" update="tabelaResultados"/>
+                                    <p:commandButton value="LIMPAR" type="reset"/>
                                 </h:panelGrid>
-
-                                <p:commandButton value="BUSCAR" action="#{buscaBean.buscar}" update="tabelaResultados"/>
-                                <p:commandButton value="LIMPAR" type="reset"/>
-                            </h:panelGrid>
-                        </p:panel>
-
+                            </p:panel>
+                        </div>
                         <p:dataTable id="tabelaResultados" value="#{buscaBean.comparadores}" emptyMessage="Não há registros" var="produto" paginator="true" rows="5">
                             <p:column headerText="Nome">
                                 <h:outputText value="#{produto.nomeProduto}"/>
